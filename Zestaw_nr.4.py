@@ -20,9 +20,9 @@ class TestMethods(unittest.TestCase):
         self.assertEqual(odwracanie_rec(L3,3,6),[2,5,1,14,10,4,6])
     def test_sum_sequence(self):
         seq = [1,(2,3),[],[4,(5,6,7)],8,[9]]
-		self.assertEqual(sum_sequence(seq),45)
-    def test_flatten(self):
-		self.assertEqual(flatten(seq),[1, 2, 3, 4, 5, 6, 7, 8, 9])
+	self.assertEqual(sum_sequence(seq),45)
+	def test_flatten(self):
+	self.assertEqual(flatten(seq),[1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 #4.2   
 def miarka(length):
