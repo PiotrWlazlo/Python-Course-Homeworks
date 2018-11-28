@@ -37,22 +37,31 @@ def mul_poly(poly1,poly2):
 def is_zero(poly):
     for i in poly:
         if i==0:
-            temp = True
+            pass
         else:
-            temp = False
-    return temp
+            return False
+    return True
 
 def cmp_poly(poly1,poly2):
     temp1 = list(poly1)
     temp2 = list(poly2)
-    if len(temp1)!=len(temp2) and (not is_zero(temp1) and not is_zero(temp2)):
-        return False
-    for i in range(len(temp1)):
-        if temp1[i] == temp2[i]:
-            temp = True
+    Tw = max(len(temp1),len(temp2))
+    if Tw==len(temp1): #(Guessing which poly has more coefficient because max([0,3,1],[3,1])=[3,1] 
+        Tw = temp1
+        Tm = temp2
+    else:
+        Tw = temp2
+        Tm = temp1
+    if len(Tw)!=len(Tm):
+        for i in range(len(Tw)-len(Tm)):
+            if Tw[i]!=0:
+                return False
+    for i in range(len(Tm)):
+        if Tm[i] == Tw[i + (len(Tw) - len(Tm))]:
+            pass
         else:
-            temp = False
-    return temp
+            return False
+    return True
 
 def eval_poly(poly, x0):
     temp = list(poly)
