@@ -42,11 +42,12 @@ def is_zero(poly):
             return False
     return True
 
+'''
 def cmp_poly(poly1,poly2):
     temp1 = list(poly1)
     temp2 = list(poly2)
     Tw = max(len(temp1),len(temp2))
-    if Tw==len(temp1): #(Guessing which poly has more coefficient because max([0,3,1],[3,1])=[3,1] 
+    if Tw==len(temp1): #(Guessing which poly has more coefficient because max([0,3,1],[3,1])=[3,1]
         Tw = temp1
         Tm = temp2
     else:
@@ -60,6 +61,23 @@ def cmp_poly(poly1,poly2):
         if Tm[i] == Tw[i + (len(Tw) - len(Tm))]:
             pass
         else:
+            return False
+    return True
+'''
+
+def cmp_poly(poly1,poly2):
+    temp1 = list(poly1)
+    temp2 = list(poly2)
+    if is_zero(temp1) or is_zero(temp2):
+        return False
+    if len(temp1) != len(temp2):
+        temp_max = max(temp1,temp2)
+        temp_min = min(temp1,temp2)
+        for i in range(len(temp_min),len(temp_max)):
+            if temp_max[i] != 0:
+                return False
+    for i in range(len(temp1)):
+       if temp1[i] != temp2[i]:
             return False
     return True
 
@@ -91,3 +109,4 @@ def pow_poly(poly, n):
 def diff_poly(poly):
     return [poly[i] * i for i in range(1, len(poly))]
 
+cmp_poly([4,8,1],[4,8,1])

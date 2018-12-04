@@ -18,8 +18,11 @@ class TestPolynomials(unittest.TestCase):
         self.assertFalse(is_zero([0,1,2]))
         self.assertFalse(is_zero([2,2,1]))
     def test_cmp_poly(self):
-        self.assertTrue(cmp_poly([1,2,5,0],[1,2,5,0]))
-        self.assertTrue(cmp_poly([2,5,1],[2,5,1]))
+        self.assertTrue(cmp_poly([3,6,1],[3,6,1]))
+        self.assertTrue(cmp_poly([4,1,8],[4,1,8,0]))
+        self.assertFalse(cmp_poly([1,2,5,0],[0,1,2,5,0]))
+        self.assertFalse(cmp_poly([0,2,5,1],[2,5,1]))
+        self.assertFalse(cmp_poly([0,0,3],[1,0,0,3]))
         self.assertFalse(cmp_poly([3,7,1],[4,1,9,7]))
         self.assertFalse(cmp_poly([0,0,2],[4,1]))
     def test_eval_poly(self):
