@@ -67,6 +67,7 @@ class SingleList:
             node.next = prev
             prev = node
             node = next
+        self.tail = self.head
         self.head = prev
         return self
 
