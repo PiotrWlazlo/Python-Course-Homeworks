@@ -22,8 +22,8 @@ def insertsort(L, left, right):
         L[j] = item
 
 
-def bucketsort(L):
-    bucket = [[],[],[],[],[],[],[],[],[],[]]
+def bucketsort(L,d):
+    bucket = [[] for _ in range(d)]
     div = math.ceil((max(L)+1)/len(bucket))
     for i in L:
         x = math.floor(i/div)
@@ -34,7 +34,7 @@ def bucketsort(L):
     return arr
 
 
-def neg_bucketsort(L):
+def neg_bucketsort(L,d):
     pos = []
     neg = []
     for i in L:
@@ -42,7 +42,7 @@ def neg_bucketsort(L):
             neg.append(i)
         else:
             pos.append(i)
-    L = bucketsort(neg)
-    E = bucketsort(pos)
+    L = bucketsort(neg,d)
+    E = bucketsort(pos,d)
     L.extend(E)
     return L
