@@ -22,12 +22,21 @@ class EdgeColor:
 
     def run(self):
         length = len(list(self.graph.iternodes()))
+        peripheral_edges= []
         for i in range(length): # 
             edge = (i, (i+1) % length)
             if edge in self.color.keys():
                 self.color[edge] = i
+                peripheral_edges.append(edge)
             else:
                 self.color[(edge[1], edge[0])] = i
+                peripheral_edges.append((edge[1], edge[0]))
+        print(peripheral_edges)
+        for edge in peripheral_edges:
+            start_node = edge[0]
+            end_node = edge[1]
+            while edge[0] != math.floor(length/2):
+                pass
         
 
 if __name__ == '__main__':
