@@ -20,7 +20,13 @@ class EdgeColor:
         if len(self.color) < self.m:
             raise ValueError("edges are not unique")
 
-    def run_odd(self):
+    def run_complete(self):
+        if self.graph.v()%2 != 0:
+            self.complete_odd()
+        else:
+            self.complete_even()
+
+    def complete_odd(self):
         length = len(list(self.graph.iternodes()))
         peripheral_edges = []
         for i in range(length):  #
@@ -46,9 +52,9 @@ class EdgeColor:
                 else:
                     continue
     
-    def run_even(self):
+    def complete_even(self):
         edges = self.graph.del_node(self.graph.v()-1)
-        self.run_odd()
+        self.complete_odd()
         self.graph.add_node(self.graph.v())
         for e in edges:
             self.graph.add_edge(e)
@@ -64,14 +70,14 @@ class EdgeColor:
                 else:
                     s.add(self.color[(i,j)])
             self.color[(i,self.graph.v()-1)] = (colors-s).pop()
-                    
+    
         
 
 if __name__ == '__main__':
-    N = 1000
+    N = 11
     G = GraphFactory(Graph)
     g1 = G.make_complete(N, directed=False)
     g1.save("graf.txt")
     c1 = EdgeColor(g1)
-    c1.run_even()
+    c1.run_complete()
     print(c1.color)
