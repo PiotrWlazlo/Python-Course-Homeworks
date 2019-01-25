@@ -31,14 +31,10 @@ class EdgeColor:
             else:
                 self.color[(edge[1], edge[0])] = i
                 peripheral_edges.append((edge[1], edge[0]))
-        print(peripheral_edges)
         for edge in peripheral_edges:
             node1 = edge[0]
-            #print('Wierchołek startowy:',node1)
             node2 = edge[1]
-            #print('Wierchołek koncowy:', node2)
             for i in range(math.floor(self.graph.v()/2)):
-                #print('petla nr:',i)
                 if node1 == 0: node1 = self.graph.v()-1
                 else: node1 -= 1
                 if node2 == self.graph.v()-1: node2 = 0
@@ -52,7 +48,6 @@ class EdgeColor:
     
     def run_even(self):
         edges = self.graph.del_node(self.graph.v()-1)
-        #print(edges)
         self.run_odd()
         self.graph.add_node(self.graph.v())
         for e in edges:
@@ -65,7 +60,6 @@ class EdgeColor:
                 if i==j:
                     continue
                 elif i>j:
-                    #print("wartość",i," ",j)
                     s.add(self.color[(j,i)])
                 else:
                     s.add(self.color[(i,j)])
