@@ -73,11 +73,3 @@ class EdgeColor:
     
         
 
-if __name__ == '__main__':
-    N = 11
-    G = GraphFactory(Graph)
-    g1 = G.make_complete(N, directed=False)
-    g1.save("graf.txt")
-    c1 = EdgeColor(g1)
-    c1.run_complete()
-    print(c1.color)

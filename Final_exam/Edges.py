@@ -9,9 +9,11 @@ class Edge:
     
     Examples
     --------
+    '''
     >>> from graphtheory.structures.edges import Edge
     >>> edge = Edge(1, 2, 5)
     >>> ~edge
+    '''
     Edge(2, 1, 5)
     
     Notes
