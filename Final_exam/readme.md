@@ -37,7 +37,7 @@ na kolor taki któremu brakuje z dostępnej listy kolorów node'owi łączącego
 Liczba kolorów potrzebna do pokolorowania tego grafu wynosi Δ.
 
 
-
+werwa
 
 
 
